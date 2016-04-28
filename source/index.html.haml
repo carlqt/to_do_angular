@@ -1,0 +1,13 @@
+.container.index{ "ng-controller" => "myAppController" }
+  %h1 Hello Middleman
+  %p some great text here
+
+  %h2 Users
+  %ul
+    %li{"ng-repeat" => "user in users"}
+      {{ user.Name }}
+
+  %h2 Tasks
+  %ul
+    %li{"ng-repeat" => "task in tasks"}
+      {{ task.Description }}

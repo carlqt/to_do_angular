@@ -1,0 +1,14 @@
+!!!
+%html{ "ng-app" => "myApp" }
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no", :name => "viewport"}/
+    / Use title if it's in the page YAML frontmatter
+    %title= current_page.data.title || "Middleman"
+    %link{ rel: "stylesheet", href: "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" }
+    = stylesheet_link_tag :site
+  %body
+    = yield
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js", :all
