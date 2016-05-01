@@ -13,20 +13,25 @@ myApp.controller("myAppController", ["$scope", "$http", function($scope, $http) 
 
 }]);
 
-myApp.controller("formController", ["$scope", "$http", function($scope, $http, $httpParamSerializerJQLike) {
+myApp.controller("formController", ["$scope", "$http", function($scope, $http) {
   $scope.user = {};
   $scope.createUser = function(e) {
     $http({
       method: 'POST',
       url: 'http://localhost:9000/user',
-      data: "name=" + $scope.user.name + "&age=" + $scope.user.age,
+      data: $.param($scope.user),
       headers : {'Content-Type': 'application/x-www-form-urlencoded'}
     }).then(function successCallback(data){
       console.log(data)
     }, function failCallback(data){
       console.log("Fail:" + data)
-      e.preventDefault();
-      return false;
     });
   }
 }]);
+
+// (function preventRedirect() {
+//   $("form").submit(function(e){
+//     e.preventDefault();
+//     return false;
+//   });
+// }());

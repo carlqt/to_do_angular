@@ -1,6 +1,6 @@
 .container.new-user{ "ng-controller" => "formController" }
   %h1 Add user
-  = form_tag '/', "ng-submit" => "createUser($event)" do
+  %form{ "ng-submit" => "createUser()" }
     .form-group
       = label_tag :name
       = text_field_tag :name, placeholder: "name", class: "form-control", "ng-model" => "user.name"
